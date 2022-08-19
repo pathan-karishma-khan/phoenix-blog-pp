@@ -6,7 +6,9 @@ defmodule Blog.Posts do
   import Ecto.Query, warn: false
   alias Blog.Repo
   alias Blog.Comments
+  alias Blog.Comments.Comment
   alias Blog.Posts.Post
+  alias Blog.Posts
 
   @doc """
   Returns the list of posts.
@@ -49,6 +51,13 @@ defmodule Blog.Posts do
       {:error, %Ecto.Changeset{}}
 
   """
+
+  def get_number_of_comments(post_id) do
+    post = Posts.get_post!(post_id) |> Repo.preload([:comments])
+    Enum.count(post.comments)
+  end
+
+
   def create_post(attrs \\ %{}) do
     %Post{}
     |> Post.changeset(attrs)

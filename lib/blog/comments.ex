@@ -5,8 +5,10 @@ defmodule Blog.Comments do
 
   import Ecto.Query, warn: false
   alias Blog.Repo
-
+  alias Blog.Comments
   alias Blog.Comments.Comment
+  alias Blog.Posts.Post
+  alias Blog.Posts
 
   @doc """
   Returns the list of comments.

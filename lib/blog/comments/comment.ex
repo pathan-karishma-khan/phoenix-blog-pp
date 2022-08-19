@@ -1,6 +1,8 @@
 defmodule Blog.Comments.Comment do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Blog.Posts.Post
+  alias Blog.Posts
 
   schema "comments" do
     field :content, :string
