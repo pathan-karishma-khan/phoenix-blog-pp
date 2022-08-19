@@ -6,7 +6,9 @@ defmodule BlogApp.Posts do
   import Ecto.Query, warn: false
   alias BlogApp.Repo
 
+  alias BlogApp.Posts
   alias BlogApp.Posts.Post
+  alias BlogApp.Comments
 
   @doc """
   Returns the list of posts.
@@ -20,6 +22,19 @@ defmodule BlogApp.Posts do
   def list_posts do
     Repo.all(Post)
   end
+
+  def add_comment(post_id, comment_params) do
+    comment_params
+    |> Map.put("post_id", post_id)
+    |> Comments.create_comment()
+  end
+
+
+  def get_number_of_comments(post_id) do
+    post = Posts.get_post!(post_id) |> Repo.preload([:comments])
+    Enum.count(post.comments)
+  end
+
 
   @doc """
   Gets a single post.
