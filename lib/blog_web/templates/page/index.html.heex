@@ -1,43 +1,17 @@
+<section class="w-screen">
 <span><%= render "nav.html" %>
 </span>
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p class="text-3xl" >Peace of mind from prototype to production</p>
+
+<section>
+<div style="border-top:1px solid grey;border-bottom:1px solid grey">
+<img src={Routes.static_path(@conn, "/images/home.jpeg")} alt="Phoenix Framework Logo" class="object-fill h-96 md:h-1/2 w-screen"/>
+</div>
+<h1 class="text-white text-3xl text-center py-4">This is where we tell stories!!</h1>
+</section>
+<section class="flex m-auto py-8 text-white">
+<span class="w-1/6 text-right">Follow</span>
+<img class="w-4/6" src={Routes.static_path(@conn, "/images/curve.png")} alt="Phoenix Framework Logo" class="object-fill w-screen"/>
+<span class="w-1/6"><a href="/posts" class="bg-red-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Posts</a></span>
 </section>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.6/CHANGELOG.md">v1.6 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://web.libera.chat/#elixir">#elixir on Libera Chat (IRC)</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-      <li>
-        <a href="https://discord.gg/elixir">Elixir on Discord</a>
-      </li>
-    </ul>
-  </article>
 </section>
