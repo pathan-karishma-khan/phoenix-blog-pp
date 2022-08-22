@@ -1,29 +1,28 @@
-<h1>Listing Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Comments</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<section class="text-white">
+<div class="p-8"> Add new blog 
+<a href="/posts/new">
+<svg class="inline w-10 h-10 pl-3" 
+xmlns="http://www.w3.org/2000/svg" 
+viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+<path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 368C269.3 368 280 357.3 280 344V280H344C357.3 280 368 269.3 368 256C368 242.7 357.3 232 344 232H280V168C280 154.7 269.3 144 256 144C242.7 144 232 154.7 232 168V232H168C154.7 232 144 242.7 144 256C144 269.3 154.7 280 168 280H232V344C232 357.3 242.7 368 256 368z"/>
+</svg></a>
+</div>
+<span class="font-extrabold text-xl pl-3 text-violet-600">Pick a Story</span>
+<div class="flex flex-wrap">
 <%= for post <- @posts do %>
-    <tr>
-      <td><%= post.title %></td>
-      <td><%= post.body %></td>
-      <td><%= get_comments_count(post.id) %></td>
-      <td>
-        <span><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span>
-        <span><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span>
-        <span><%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %></span>
-      </td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+<div class="w-72 md:mx-10 md:my-6 mx-2 h-44 bg-violet-600 rounded-lg"my-8 style="border:2px solid grey" >
+<img class="h-4/6 w-screen" src={Routes.static_path(@conn, "/images/blog.jpg")} alt="Phoenix Framework Logo" class="object-fill w-screen"/>
+<div class="bg-gray-900 text-white text-xl text-center"><%= post.title %></div>
+<div class="text-white flex justify-between">
 
-<span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>
+        <span class="px-2"><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span>
+        <span class="px-2"><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span>
+        <span class="px-2"><%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %></span>
+</div>
+</div>
+    
+<% end %>
+</div>
+
+</section>
+
